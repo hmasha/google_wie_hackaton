@@ -1,3 +1,8 @@
+<?php
+
+include 'create_table.php';
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
