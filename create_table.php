@@ -9,7 +9,8 @@ $sql = 'CREATE TABLE goose(
    );';
 $result=pg_query($conn,$sql);
 if(!$result) { 
-    echo 'error';
+    $error= pg_last_error($conn);
+    echo $error;
 }
 else{
     echo 'success';
