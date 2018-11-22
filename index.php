@@ -1,6 +1,6 @@
 <?php
 
-include 'create_table.php';
+//include 'insert_data.php';
 
 ?>
 <!DOCTYPE html>
