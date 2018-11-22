@@ -54,7 +54,7 @@
        * element that contains the map. */
       #map {
         height: 80%;
-        width: 80%;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -65,7 +65,7 @@
     </style>
   </head>
   <body>
-    <div id="<?php echo $pos ?> </div>
+    <div id="<?php echo $pos ?>"> </div>
     
     <div id="map"></div>
     <form action="insert_data.php" method="post" id="form1">

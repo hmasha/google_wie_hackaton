@@ -16,7 +16,7 @@
        * element that contains the map. */
       #map {
         height: 80%;
-        width: 80%;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -123,8 +123,6 @@
 
     ?>
   
-
-   
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCjVEQ8w_JFtWn4VLWxkRN7h0e7NhDuk&callback=initMap"
     async defer></script>
