@@ -119,22 +119,23 @@
         echo $lat;
         echo $long;
 
-    ?>
+        ?>
 
-    <script>
-        map = document.getElementById('map');
-        var pos = {
-            lat: "<?php echo $lat; ?>",
-            lng: "<?php echo $long; ?>"
-        };
-        var marker = new google.maps.Marker({
-            position: pos,
-            map: map,
-            title: 'Hello World!'
-        });
-    </script>
+        <script>
+            alert("<?php echo $lat; ?>");
+            map = document.getElementById('map');
+            var pos = {
+                lat: "<?php echo $lat; ?>",
+                lng: "<?php echo $long; ?>"
+            };
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: 'Hello World!'
+            });
+        </script>
 
-    <?php
+        <?php
         }
     }
 
