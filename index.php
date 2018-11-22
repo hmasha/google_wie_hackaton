@@ -1,8 +1,4 @@
-<?php
 
-include 'create_table.php';
-
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,8 +20,10 @@ include 'create_table.php';
     </style>
   </head>
   <body>
+  
     <div id="map"></div>
     <script>
+      //this code is from https://developers.google.com/maps/documentation/javascript/geolocation
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
@@ -34,7 +32,7 @@ include 'create_table.php';
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
-          zoom: 20
+          zoom: 19
         });
         infoWindow = new google.maps.InfoWindow;
 
@@ -45,11 +43,22 @@ include 'create_table.php';
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
+            var pos2 = {
+              lat: position.coords.latitude + 0.02,
+              lng: position.coords.longitude + 0.02
+            };
+            
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('You are here');
             infoWindow.open(map);
             map.setCenter(pos);
+
+            var marker = new google.maps.Marker({
+              position: pos2,
+              map: map,
+              title: 'Hello World!'
+            });
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -66,6 +75,10 @@ include 'create_table.php';
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
+      
+
+
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCjVEQ8w_JFtWn4VLWxkRN7h0e7NhDuk&callback=initMap"
