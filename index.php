@@ -1,4 +1,5 @@
 <?php
+
 //include 'insert_data.php';
 
 ?>
@@ -27,7 +28,7 @@
   <body>
   
     <div id="map"></div>
-    <form action="/insert_data.php" method="post" id="form1">
+    <form action="insert_data.php" method="post" id="form1">
       <input type="hidden" id="myLat" name="lat">
       <input type="hidden" id="myLong" name="long">
       <input type="submit" value="IM NEAR A GOOSE">
