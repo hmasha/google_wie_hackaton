@@ -1,7 +1,7 @@
-<php?
-//include 'insert_data.php';
+<?php
+include 'insert_data.php';
 
-//?>
+?>
 
 <!DOCTYPE html>
 <html>
