@@ -1,3 +1,4 @@
+
 <?php
 
 //include 'insert_data.php';
@@ -31,9 +32,8 @@
     <form action="insert_data.php" method="post" id="form1">
       <input type="hidden" id="myLat" name="lat">
       <input type="hidden" id="myLong" name="long">
-      <input type="image" src="goose.png" alt="Submit"/>
-      <!-- <img src="pic_trulli.jpg" alt="Italian Trulli"> -->
-    </form>
+      <input type="image" src="goose.png" alt="Submit"/>    </form>
+
     <script>
       //this code is from https://developers.google.com/maps/documentation/javascript/geolocation
       // Note: This example requires that you consent to location sharing when
@@ -59,10 +59,11 @@
             //setting the hidden form variables
             document.getElementById('myLat').value = position.coords.latitude;
             document.getElementById('myLong').value = position.coords.longitude;
+            
             //test postition for a marker
             var pos2 = {
-              lat: position.coords.latitude + 0.02,
-              lng: position.coords.longitude + 0.02
+              lat: position.coords.latitude + 0.002,
+              lng: position.coords.longitude + 0.002
             };
 
             infoWindow.setPosition(pos);
@@ -92,8 +93,38 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+      
+      </script>
+     <?php
+    include 'connect.php';
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    echo "test,i'm here";
+    $sql = "SELECT * FROM goose";
+    $result = pg_query($conn,$sql);
+    if(!$result) 
+    { 
+        $error= pg_last_error($conn);
+        echo $error;
+        echo "why oh please display";
+    }
+    else
+    {
+        while($row = pg_fetch_assoc($result)) 
+        {
+        $lat= $row["lat"];
+        $long=$row["long"];
+        echo $lat;
+        echo $long;
 
-    </script>
+        }
+    }
+
+    ?>
+  
+
+   
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCjVEQ8w_JFtWn4VLWxkRN7h0e7NhDuk&callback=initMap"
     async defer></script>

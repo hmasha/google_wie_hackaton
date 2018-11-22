@@ -4,7 +4,45 @@
 //include 'insert_data.php';
 
 ?>
+ <?php
+    include 'connect.php';
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    echo "test,i'm here";
+    $sql = "SELECT * FROM goose";
+    $result = pg_query($conn,$sql);
+    if(!$result) 
+    { 
+        $error= pg_last_error($conn);
+        echo $error;
+        echo "why oh please display";
+    }
+    else
+    {
+      $pos = array();
+      $i = 1;
+        while($row = pg_fetch_assoc($result)) 
+        {
+          $pos[i]=$row["lat"];
+          $i=$i+1;
+          $pos[i]=$row["long"];
+       $lat= $row["lat"];
+        $long=$row["long"];
+        echo $lat;
+        echo $long;
 
+        echo '<script>';
+            echo 'map = document.getElementById("map");';
+            echo 'var pos = { lat: ' . $lat . ', lng: ' . $long . ' };';
+            echo 'var marker = new google.maps.Marker({position: pos, map: map, title: "Hello World!"});';
+        echo '</script>';
+
+        
+        }
+    }
+
+    ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,7 +65,8 @@
     </style>
   </head>
   <body>
-  
+    <div id="<?php echo $pos ?> </div>
+    
     <div id="map"></div>
     <form action="insert_data.php" method="post" id="form1">
       <input type="hidden" id="myLat" name="lat">
@@ -99,43 +138,7 @@
 
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCjVEQ8w_JFtWn4VLWxkRN7h0e7NhDuk&callback=initMap"
     async defer></script>
-     <?php
-    include 'connect.php';
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    echo "test,i'm here";
-    $sql = "SELECT * FROM goose";
-    $result = pg_query($conn,$sql);
-    if(!$result) 
-    { 
-        $error= pg_last_error($conn);
-        echo $error;
-        echo "why oh please display";
-    }
-    else
-    {
-      $pos = array();
-      $i = 1;
-        while($row = pg_fetch_assoc($result)) 
-        {
-          $pos[i]=$row["lat"];
-          $i=$i+1;
-          $pos[i]=$row["long"];
-       $lat= $row["lat"];
-        $long=$row["long"];
-        echo $lat;
-        echo $long;
-
-        echo '<script>';
-            echo 'map = document.getElementById("map");';
-            echo 'var pos = { lat: ' . $lat . ', lng: ' . $long . ' };';
-            echo 'var marker = new google.maps.Marker({position: pos, map: map, title: "Hello World!"});';
-        echo '</script>';
-        }
-    }
-
-    ?>
+    
   
 
    
