@@ -33,8 +33,8 @@
       <input type="hidden" id="myLat" name="lat">
       <input type="hidden" id="myLong" name="long">
       <input type="image" src="goose.png" alt="Submit"/>
-      <input type="image" src="goose.png" alt="Submit"width="60" height="60" />
-      <input type="image" src="goose.png" alt="Submit" width="50" height="48" />    </form>
+      <input type="image" src="goose.png" alt="Submit"width="120" height="120" />
+      <input type="image" src="goose.png" alt="Submit" width="75" height="75" />    </form>
 
     <script>
       //this code is from https://developers.google.com/maps/documentation/javascript/geolocation
