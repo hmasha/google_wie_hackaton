@@ -8,7 +8,7 @@ $sql = "CREATE TABLE goose
     lat VARCHAR NOT NULL,
     long VARCHAR NOT NULL,
     position VARCHAR,
-    created_on VARCHAR
+    created_on VARCHAR NOT NULL
    )";
 $result=pg_query($conn,$sql);
 if(!$result) { 

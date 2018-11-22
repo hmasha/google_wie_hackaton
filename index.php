@@ -1,5 +1,5 @@
 <?php
-include 'insert_data.php';
+include 'create_table.php';
 
 ?>
 
