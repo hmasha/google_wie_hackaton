@@ -115,9 +115,14 @@
     }
     else
     {
+      $pos = array();
+      $i = 1;
         while($row = pg_fetch_assoc($result)) 
         {
-        $lat= $row["lat"];
+          $pos[i]=$row["lat"];
+          $i=$i+1;
+          $pos[i]=$row["long"];
+       $lat= $row["lat"];
         $long=$row["long"];
         echo $lat;
         echo $long;
