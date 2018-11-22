@@ -81,6 +81,8 @@
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
       var map, infoWindow;
+      var jsObject = JSON.parse('<?= addslashes(json_encode($pos)) ?>');
+      alert (jsObject);
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},

@@ -16,7 +16,7 @@
        * element that contains the map. */
       #map {
         height: 80%;
-        width: 80%;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
