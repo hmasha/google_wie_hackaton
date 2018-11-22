@@ -1,5 +1,6 @@
 <?php
-//include 'create_table.php';
+
+//include 'insert_data.php';
 
 ?>
 
@@ -60,7 +61,7 @@
             //test postition for a marker
             var pos2 = {
               lat: position.coords.latitude + 0.02,
-              lng: position.coords.longitude + 0++.02
+              lng: position.coords.longitude + 0.02
             };
 
             infoWindow.setPosition(pos);
@@ -91,10 +92,33 @@
         infoWindow.open(map);
       }
 
-      
-
-
     </script>
+
+
+    <?php
+
+    $latArray = array(43.453808599999995, 43.454808599999995, 43.455808599999995, 43.456808599999995);
+    $longArray = array(-80.49995269999999, -80.49996269999999, -80.49997269999999, -80.49998269999999);
+    for ($x = 0; $x <4; $x++) {   
+      
+      echo 'var pos = {
+        lat: ' . $latArray[$x] . '
+        lng: ' . $longArray[$x] . '
+      };'
+        ?>
+
+        <script>
+            var marker = new google.maps.Marker({
+                  position: pos,
+                  map: map,
+                });
+        </script>
+
+        <?php
+        
+    }
+
+    ?>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCjVEQ8w_JFtWn4VLWxkRN7h0e7NhDuk&callback=initMap"
     async defer></script>
