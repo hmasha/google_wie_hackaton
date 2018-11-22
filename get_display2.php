@@ -123,7 +123,6 @@
         echo $long;
 
         echo '<script>';
-            
             echo 'map = document.getElementById("map");';
             echo 'var pos = { lat: ' . $lat . ', lng: ' . $long . ' };';
             echo 'var marker = new google.maps.Marker({position: pos, map: map, title: "Hello World!"});';
