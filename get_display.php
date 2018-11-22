@@ -94,49 +94,52 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-
-      <?php
-        include 'connect.php';
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-        echo "test,i'm here";
-        $sql = "SELECT * FROM goose";
-        $result = pg_query($conn,$sql);
-        if(!$result) 
-        { 
-            $error= pg_last_error($conn);
-            echo $error;
-            echo "why oh please display";
-        }
-        else
+      
+      </script>
+     <?php
+    include 'connect.php';
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    echo "test,i'm here";
+    $sql = "SELECT * FROM goose";
+    $result = pg_query($conn,$sql);
+    if(!$result) 
+    { 
+        $error= pg_last_error($conn);
+        echo $error;
+        echo "why oh please display";
+    }
+    else
+    {
+        while($row = pg_fetch_assoc($result)) 
         {
-            while($row = pg_fetch_assoc($result)) 
-            {
-            $lat= $row["lat"];
-            $long=$row["long"];
-            echo $lat;
-            echo $long;
+        $lat= $row["lat"];
+        $long=$row["long"];
+        echo $lat;
+        echo $long;
 
-        ?>
-        var pos3 = {
+    ?>
+
+    <script>
+        map = document.getElementById('map');
+        var pos = {
             lat: "<?php echo $lat; ?>",
             lng: "<?php echo $long; ?>"
         };
         var marker = new google.maps.Marker({
-            position: pos3,
+            position: pos,
             map: map,
             title: 'Hello World!'
         });
+    </script>
 
-
-        <?php
-            }
+    <?php
         }
+    }
 
-        ?>
+    ?>
   
-      </script>
 
    
 
