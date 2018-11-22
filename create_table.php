@@ -5,7 +5,6 @@ $resultdrop=pg_query($conn,$drop);
 $sql = "CREATE TABLE goose
 (
     id SERIAL PRIMARY KEY,
-    position VARCHAR NOT NULL,
     lat VARCHAR NOT NULL,
     long VARCHAR NOT NULL,
     position VARCHAR,
