@@ -1,5 +1,5 @@
 <?php
-include 'create_table.php';
+//include 'create_table.php';
 
 ?>
 

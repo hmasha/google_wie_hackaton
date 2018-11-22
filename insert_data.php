@@ -12,6 +12,5 @@ if(!$result) {
     echo 'why oh why';
 }
 else{
-    echo 'success';
-}
+    header('Location: get_display.php');}
 ?>
