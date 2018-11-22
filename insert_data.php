@@ -12,5 +12,8 @@ if(!$result) {
     echo 'why oh why';
 }
 else{
-    header('Location: get_display.php');}
+    header('Location: get_display.php');
+    echo "here";
+}
+
 ?>
