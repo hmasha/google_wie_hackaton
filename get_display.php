@@ -93,9 +93,7 @@
         infoWindow.open(map);
       }
 
-    </script>
-
-    <?php
+     <?php
     include 'connect.php';
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -119,19 +117,15 @@
         echo $long;
 
         ?>
-
-        <script>
-            var lat = 
-            var pos = {
+            var pos3 = {
                 lat: "<?php echo $lat; ?>",
                 lng: "<?php echo $long; ?>"
-            }
+            };
             var marker = new google.maps.Marker({
-              position: pos,
+              position: pos3,
               map: map,
               title: 'Hello World!'
             });
-        </script>
 
         <?php
         }
@@ -139,6 +133,9 @@
 
 
     ?>
+    </script>
+
+   
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCjVEQ8w_JFtWn4VLWxkRN7h0e7NhDuk&callback=initMap"
     async defer></script>
