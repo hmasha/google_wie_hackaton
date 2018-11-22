@@ -13,7 +13,7 @@ if(!$result) {
 }
 else{
     header('Location: get_display.php');
-    echo "here";
+   // echo "here";
 }
 
 ?>
