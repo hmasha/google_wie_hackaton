@@ -20,6 +20,14 @@ else
     $long=$row["long"];
     echo $lat;
     echo $long;
+
+    ?>
+
+    <script>
+        var lat = <?php echo $lat; ?>
+    </script>
+
+    <?php
     }
 }
 
