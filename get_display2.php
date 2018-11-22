@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Map</title>
+    <title>Goose Goose!</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
@@ -121,7 +121,7 @@
 
         echo '<script>';
             echo 'alert("<?php echo $lat; ?>");';
-            echo 'map = document.getElementById('map');';
+            echo 'map = document.getElementById("map");';
             echo 'var pos = { lat: ' . $lat . ', lng: ' . $long . ' };';
             echo 'var marker = new google.maps.Marker({position: pos, map: map, title: "Hello World!"});';
         echo '</script>';
