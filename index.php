@@ -32,7 +32,9 @@
     <form action="insert_data.php" method="post" id="form1">
       <input type="hidden" id="myLat" name="lat">
       <input type="hidden" id="myLong" name="long">
-      <input type="image" src="goose.png" alt="Submit"/>    </form>
+      <input type="image" src="goose.png" alt="Submit"/>
+      <input type="image" src="goose.png" alt="Submit"width="60" height="60" />
+      <input type="image" src="goose.png" alt="Submit" width="50" height="48" />    </form>
 
     <script>
       //this code is from https://developers.google.com/maps/documentation/javascript/geolocation
