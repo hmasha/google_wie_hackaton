@@ -92,7 +92,7 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-
+      </script>
      <?php
     include 'connect.php';
     ini_set('display_errors', 1);
@@ -116,24 +116,26 @@
         echo $lat;
         echo $long;
 
-        ?>
-            var pos3 = {
-                lat: "<?php echo $lat; ?>",
-                lng: "<?php echo $long; ?>"
-            };
-            var marker = new google.maps.Marker({
-              position: pos3,
-              map: map,
-              title: 'Hello World!'
-            });
+    ?>
 
-        <?php
+    <script>
+        var pos = {
+            lat: "<?php echo $lat; ?>",
+            lng: "<?php echo $long; ?>"
+        };
+        var marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            title: 'Hello World!'
+        });
+    </script>
+
+    <?php
         }
     }
 
-
     ?>
-    </script>
+  
 
    
 
