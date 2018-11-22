@@ -34,6 +34,7 @@
       <input type="hidden" id="myLong" name="long">
       <input type="submit" value="IM NEAR A GOOSE">
     </form>
+
     <script>
       //this code is from https://developers.google.com/maps/documentation/javascript/geolocation
       // Note: This example requires that you consent to location sharing when
@@ -59,10 +60,11 @@
             //setting the hidden form variables
             document.getElementById('myLat').value = position.coords.latitude;
             document.getElementById('myLong').value = position.coords.longitude;
+            
             //test postition for a marker
             var pos2 = {
-              lat: position.coords.latitude + 0.02,
-              lng: position.coords.longitude + 0.02
+              lat: position.coords.latitude + 0.002,
+              lng: position.coords.longitude + 0.002
             };
 
             infoWindow.setPosition(pos);
@@ -119,6 +121,7 @@
     ?>
 
     <script>
+        map = document.getElementById('map');
         var pos = {
             lat: "<?php echo $lat; ?>",
             lng: "<?php echo $long; ?>"
