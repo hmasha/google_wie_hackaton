@@ -39,8 +39,7 @@
         echo '</script>';
 
         
-        }
-    }
+  
 
     ?>
 <!DOCTYPE html>
@@ -81,8 +80,8 @@
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
       var map, infoWindow;
-      var jsObject = JSON.parse('<?= addslashes(json_encode($pos)) ?>');
-      alert (jsObject);
+
+      
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -104,8 +103,7 @@
             
             //test postition for a marker
             var pos2 = {
-              lat: position.coords.latitude + 0.002,
-              lng: position.coords.longitude + 0.002
+                "<?php echo 'var pos = { lat: ' . $lat . ', lng: ' . $long . ' };'; ?>"
             };
 
             infoWindow.setPosition(pos);
@@ -137,7 +135,10 @@
       }
       
       </script>
-
+<?php
+      }
+    }
+?>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCjVEQ8w_JFtWn4VLWxkRN7h0e7NhDuk&callback=initMap"
     async defer></script>
     
