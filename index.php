@@ -61,7 +61,7 @@
             //test postition for a marker
             var pos2 = {
               lat: position.coords.latitude + 0.02,
-              lng: position.coords.longitude + 0++.02
+              lng: position.coords.longitude + 0.02
             };
 
             infoWindow.setPosition(pos);
