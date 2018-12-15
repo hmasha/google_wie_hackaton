@@ -1,9 +1,4 @@
 
-<?php
-
-//include 'insert_data.php';
-
-?>
  <?php
     include 'connect.php';
     ini_set('display_errors', 1);
@@ -20,28 +15,35 @@
     }
     else
     {
-      $pos = array();
-      $i = 1;
+      $positions = array(); //array to store positions of users
+    
         while($row = pg_fetch_assoc($result)) 
         {
-          $pos[i]=$row["lat"];
+          $positions[] = array(
+            'lat' =>  $row['lat'],
+            'lng' =>   $row['long'],
+            //'title' => $row['longitude']. ' || ' .$row['latitude']
+        );
+         // echo $row['lat'];
+      }
+    }
+        ?>
+       
+          <!-- $pos[$i]=$row["lat"];
           $i=$i+1;
-          $pos[i]=$row["long"];
-       $lat= $row["lat"];
-        $long=$row["long"];
-        echo $lat;
-        echo $long;
+          $pos[$i]=$row["long"];
+      # $lat= $row["lat"];
+       # $long=$row["long"];
+       # echo $lat;
+       # echo $long;
+        }
+      }
+        ?> -->
+        <script>
+            var positions = <?php echo json_encode($positions)?>;
+            //alert(positions);
+        </script>
 
-        echo '<script>';
-            echo 'map = document.getElementById("map");';
-            echo 'var pos = { lat: ' . $lat . ', lng: ' . $long . ' };';
-            echo 'var marker = new google.maps.Marker({position: pos, map: map, title: "Hello World!"});';
-        echo '</script>';
-
-        
-  
-
-    ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -80,8 +82,6 @@
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
       var map, infoWindow;
-
-      
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -91,33 +91,42 @@
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+          navigator.geolocation.getCurrentPosition(function(test) {
+            /*  var pos = {
+              lat: test.coords.latitude,
+              lng: test.coords.longitude
+            };   */
             
             //setting the hidden form variables
-            document.getElementById('myLat').value = position.coords.latitude;
+           /*  document.getElementById('myLat').value = position.coords.latitude;
             document.getElementById('myLong').value = position.coords.longitude;
-            
+             */
             //test postition for a marker
-            var pos2 = {
+           /*  var pos2 = {
               lat: position.coords.latitude + 0.002,
               lng: position.coords.longitude + 0.002
-            };
-
-            infoWindow.setPosition(pos);
+            }; */
+            
+             
+            
+            //test code for a marker
+            positions.forEach(function(position){
+              var pos = {
+              "lat" : position.lat,
+              "lng" : position.long
+               };
+            var marker = new google.maps.Marker({
+              position: pos,
+              map: map,
+              title: 'Geese'
+             });
+             infoWindow.setPosition(pos);
             infoWindow.setContent('You are here');
             infoWindow.open(map);
             map.setCenter(pos);
-            
-            //test code for a marker
-            var marker = new google.maps.Marker({
-              position: pos2,
-              map: map,
-              title: 'Hello World!'
             });
+           
+           
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -136,17 +145,8 @@
       }
       
       </script>
-<?php
-      }
-    }
-    
+
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCjVEQ8w_JFtWn4VLWxkRN7h0e7NhDuk&callback=initMap"
     async defer></script>
-    
-  
-
-   
-
-    
   </body>
 </html>

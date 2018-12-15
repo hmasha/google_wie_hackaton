@@ -29,9 +29,10 @@
   <body>
   
     <div id="map"></div>
-    <form action="insert_data.php" method="post" id="form1">
+    <form action="get_display2.php" method="post" id="form1">
       <input type="hidden" id="myLat" name="lat">
       <input type="hidden" id="myLong" name="long">
+      <input type="hidden" id="size" name="huge">
       <input type="image" src="goose.png" alt="Submit"/>
       <input type="image" src="goose.png" alt="Submit"width="120" height="120" />
       <input type="image" src="goose.png" alt="Submit" width="75" height="75" />    </form>

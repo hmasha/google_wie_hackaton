@@ -1,10 +1,4 @@
 
-<?php
-
-//include 'insert_data.php';
-
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -72,6 +66,7 @@
             map.setCenter(pos);
             
             //test code for a marker
+            
             var marker = new google.maps.Marker({
               position: pos2,
               map: map,
@@ -123,9 +118,6 @@
 
     ?>
   
-
-   
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCjVEQ8w_JFtWn4VLWxkRN7h0e7NhDuk&callback=initMap"
     async defer></script>
   </body>
